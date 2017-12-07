@@ -12,37 +12,37 @@ branches:
 nuget:
   disable_publish_on_pr: true
 
-#environment:
-#  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
-#  DOTNET_CLI_TELEMETRY_OPTOUT: true
+environment:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
 
-#build_script:
-#- ps: .\build.ps1
+build_script:
+- ps: .\build.ps1
 
 test: off
 
 #on_finish:
 #  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
-#artifacts:
-#- path: .\Artifacts\**\*.nupkg
-#  name: NuGet
-#- path: .\Artifacts\**\*.xml
-#  name: xUnit Test Results
+artifacts:
+- path: .\Artifacts\**\*.nupkg
+  name: NuGet
+- path: .\Artifacts\**\*.xml
+  name: xUnit Test Results
 
-#deploy:
-#- provider: NuGet
-#  server: https://www.myget.org/F/newtestlock-ci/api/v2/package
-#  api_key:
-#    secure: w1g8TLIvDl/CmKtT+Z9KGt1ZhTlYj8/yWtIq+gsb1KLTLeaOj2TYo26HARJGYiIb
-#  skip_symbols: true
-#  on:
-#    branch: master
+deploy:
+- provider: NuGet
+  server: https://www.myget.org/F/newtestlock-ci/api/v2/package
+  api_key:
+    secure: w1g8TLIvDl/CmKtT+Z9KGt1ZhTlYj8/yWtIq+gsb1KLTLeaOj2TYo26HARJGYiIb
+  skip_symbols: true
+  on:
+    branch: master
 
-#- provider: NuGet
-#  name: production
-#  api_key:
-#    secure: Ivq5+Q3bgmk6pyTj7lExT7ZURbcmNCTGOpW1LcslYuu0zgmiuL09Q+LFBes6pzKE
-#  on:
- #   branch: master
-#    appveyor_repo_tag: true
+- provider: NuGet
+  name: production
+  api_key:
+    secure: Ivq5+Q3bgmk6pyTj7lExT7ZURbcmNCTGOpW1LcslYuu0zgmiuL09Q+LFBes6pzKE
+  on:
+    branch: master
+    appveyor_repo_tag: true
