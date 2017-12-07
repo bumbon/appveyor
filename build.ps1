@@ -46,4 +46,4 @@ $revision = "{0:D4}" -f [convert]::ToInt32($revision, 10)
 #exec { & dotnet test .\TestProject.DataAccess.Tests -c Release }
 #exec { & dotnet test .\TestProject.Services.Tests -c Release }
 
-#exec { & dotnet pack .\TestProject.Api -c Release -o .\artifacts --version-suffix=$revision }
+exec { & dotnet pack .\TestProject.Api -c Release -o .\artifacts --version-suffix=$revision }
