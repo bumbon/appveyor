@@ -2,4 +2,4 @@
 
 # api-sample
 
-- Some description
+Some description
